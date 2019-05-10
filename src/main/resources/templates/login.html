@@ -8,25 +8,30 @@
 
 <body class="text-center">
     <div layout:fragment="content">
-        <form class="form-signin" th:action="@{/login}" method="post">
-            <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72"
-                height="72" />
-            <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-            <div th:if="${param.error}">
-                Invalid email and password.
-            </div>
-            <div th:if="${param.logout}">
-                You have been logged out.
-            </div>
-            <label for="inputEmail" class="sr-only">Email address</label>
-            <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email" required="" />
-            <label for="inputPassword" class="sr-only">Password</label>
-            <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password"
-                required="" />
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      <div class="ui container" style="width:400px; margin-top:100px;">
+        <form class="ui form" th:action="@{/login}" method="post">
+          <div class="ui massive label" style="margin-left: auto; margin-right: auto;">
+            Please sign in
+          </div>
+          <div class="ui error message" th:if="${param.error}">
+            <div class="header">Invalid email and password</div>
+          </div>
+          <div class="ui error message" th:if="${param.logout}">
+            <div class="header">You have been logged out.</div>
+          </div>
+          <div class="field">
+            <label for="inputEmail">Email address</label>
+            <input type="email" name="email" id="inputEmail" placeholder="Email" required="" />
+          </div>
+          <div class="field">
+            <label for="inputPassword">Password</label>
+            <input type="password" name="password" id="inputPassword" placeholder="Password" required="" />
+          </div>
+          <button class="ui button" type="submit">Sign in</button>
         </form>
-        <form class="form-signin" th:action="@{/signup}" method="get">
-            <button class="btn btn-md btn-success btn-block" type="Submit">Signup Here</button>
+      </div>
+        <form class="ui form" th:action="@{/signup}" method="get">
+            <button class="ui button" type="submit">Signup Here</button>
         </form>
     </div>
 </body>
